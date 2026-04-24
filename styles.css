@@ -249,8 +249,15 @@ main { padding-top: 0; position: relative; z-index: 2; }
   min-height: 100vh;
   padding: calc(var(--pad) + 96px) var(--pad) var(--pad);
   max-width: var(--maxw); margin: 0 auto;
-  display: grid; align-content: center; gap: clamp(24px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(24px, 5vw, 72px);
+  align-items: center;
   position: relative;
+}
+.hero__text {
+  display: grid; gap: clamp(24px, 4vw, 48px);
+  min-width: 0;
 }
 .hero::before {
   content: ""; position: absolute; top: 18%; right: -10vw;
@@ -261,13 +268,11 @@ main { padding-top: 0; position: relative; z-index: 2; }
   z-index: -1;
 }
 .hero__portrait {
-  position: absolute;
-  right: clamp(20px, 4vw, 56px);
-  bottom: clamp(40px, 8vh, 96px);
-  width: clamp(180px, 18vw, 260px);
+  position: relative;
+  width: clamp(220px, 22vw, 320px);
   aspect-ratio: 3/4;
   margin: 0;
-  z-index: 0;
+  align-self: center;
   opacity: 0;
   animation: heroFadeIn 1s .3s var(--ease) forwards;
 }
@@ -584,6 +589,7 @@ main { padding-top: 0; position: relative; z-index: 2; }
 }
 .service__toggle i {
   position: relative;
+  display: inline-block;
   width: 20px; height: 20px;
   border: 1px solid var(--gold); border-radius: 50%;
   flex-shrink: 0;
@@ -907,6 +913,7 @@ main { padding-top: 0; position: relative; z-index: 2; }
   animation: slideUp .6s var(--ease);
 }
 .cookie[hidden] { display: none; }
+.cookie.is-hidden { opacity: 0; transform: translateY(40px); pointer-events: none; transition: opacity .25s, transform .25s; }
 .cookie p { margin: 0; font-size: 13px; color: var(--ink-mute); }
 @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
@@ -920,6 +927,7 @@ main { padding-top: 0; position: relative; z-index: 2; }
   .about__metrics { grid-template-columns: repeat(2, 1fr); }
   .stats { grid-template-columns: repeat(2, 1fr); row-gap: 36px; }
   .stat:nth-child(3) { border-left: 0; padding-left: 0; }
+  .hero { grid-template-columns: 1fr; }
   .hero__grid { grid-template-columns: 1fr; }
   .hero__portrait { display: none; }
   .about__portrait {

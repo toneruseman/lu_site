@@ -442,11 +442,17 @@
 
   /* ============ COOKIE ============ */
   const cookie = $('#cookie');
-  if (cookie && !localStorage.getItem('lu_cookie_ok')) {
-    cookie.hidden = false;
-    $('#cookie-ok')?.addEventListener('click', () => {
-      cookie.hidden = true;
-      localStorage.setItem('lu_cookie_ok', '1');
-    });
+  if (cookie) {
+    if (localStorage.getItem('lu_cookie_ok')) {
+      cookie.remove();
+    } else {
+      cookie.hidden = false;
+      cookie.classList.remove('is-hidden');
+      $('#cookie-ok')?.addEventListener('click', () => {
+        cookie.classList.add('is-hidden');
+        localStorage.setItem('lu_cookie_ok', '1');
+        setTimeout(() => cookie.remove(), 300);
+      });
+    }
   }
 })();
