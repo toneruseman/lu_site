@@ -440,6 +440,12 @@
     });
   });
 
+  /* ============ THEME TOGGLE ============ */
+  $('#theme-toggle')?.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('theme-light');
+    try { localStorage.setItem('lu_theme', isLight ? 'light' : 'dark'); } catch (e) {}
+  });
+
   /* ============ COOKIE ============ */
   const cookie = $('#cookie');
   if (cookie) {

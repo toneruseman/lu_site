@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>(function(){try{if(localStorage.getItem('lu_theme')==='light')document.documentElement.classList.add('theme-light')}catch(e){}})();</script>
 </head>
 <body>
 
@@ -21,6 +22,17 @@
   <div class="topbar__inner">
     <span class="topbar__loc"><span class="topbar__dot"></span>Онлайн / Офлайн · Казань</span>
     <div class="topbar__contacts">
+      <button class="topbar__icon topbar__theme" id="theme-toggle" type="button" aria-label="Переключить тему" data-cursor>
+        <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none">
+            <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </g>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
       <a class="topbar__icon" href="https://t.me/lulumax" target="_blank" rel="noopener" aria-label="Telegram @lulumax" data-cursor>
         <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M9.78 15.55l-.38 4.2c.54 0 .78-.22 1.06-.5l2.54-2.38 5.27 3.8c.97.52 1.67.25 1.92-.88l3.47-16.2h.01c.3-1.42-.52-1.98-1.47-1.63L1.04 9.06C-.36 9.6-.34 10.4.8 10.74l4.94 1.54 11.48-7.17c.54-.34 1.04-.15.63.2"/></svg>
       </a>
