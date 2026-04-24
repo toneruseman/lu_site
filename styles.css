@@ -800,6 +800,8 @@ main { padding-top: 0; position: relative; z-index: 2; }
   color: var(--ink-mute); line-height: 1.4;
 }
 .cta-card__form .consent input { margin-top: 3px; accent-color: var(--gold); }
+.cta-card__form .consent a { color: var(--ink); border-bottom: 1px solid var(--line-hi); }
+.cta-card__form .consent a:hover { color: var(--gold); border-color: var(--gold); }
 .form-status { margin: 0; font-size: 13px; color: var(--gold); min-height: 1em; }
 .form-status.error { color: #e67c7c; }
 
