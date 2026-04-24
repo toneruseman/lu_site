@@ -605,6 +605,7 @@ main { padding-top: 0; position: relative; z-index: 2; }
 .service__toggle i::before { width: 8px; height: 1px; }
 .service__toggle i::after  { width: 1px; height: 8px; }
 .service.is-open .service__toggle i { transform: rotate(45deg); }
+.service.is-open .service__toggle { display: none; }
 
 .services__foot {
   max-width: var(--maxw); margin: 48px auto 0;
