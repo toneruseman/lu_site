@@ -16,6 +16,26 @@
 <div class="grain" aria-hidden="true"></div>
 <div class="cursor" aria-hidden="true"></div>
 
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar__inner">
+    <span class="topbar__loc"><span class="topbar__dot"></span>Онлайн / Офлайн · Казань</span>
+    <div class="topbar__contacts">
+      <a class="topbar__icon" href="https://t.me/lulumax" target="_blank" rel="noopener" aria-label="Telegram @lulumax" data-cursor>
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M9.78 15.55l-.38 4.2c.54 0 .78-.22 1.06-.5l2.54-2.38 5.27 3.8c.97.52 1.67.25 1.92-.88l3.47-16.2h.01c.3-1.42-.52-1.98-1.47-1.63L1.04 9.06C-.36 9.6-.34 10.4.8 10.74l4.94 1.54 11.48-7.17c.54-.34 1.04-.15.63.2"/></svg>
+      </a>
+      <a class="topbar__icon" href="mailto:lulumax@rambler.ru" aria-label="Email lulumax@rambler.ru" data-cursor>
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M3 6.5h18v11H3zM3 7l9 6 9-6"/></svg>
+      </a>
+      <a class="topbar__icon" href="tel:+79179040491" aria-label="Позвонить" data-cursor>
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.44 2.83 3.76 5.14 6.6 6.6l2.2-2.2c.28-.28.69-.36 1.05-.24 1.17.39 2.43.6 3.73.6.58 0 1.05.47 1.05 1.05v3.49c0 .58-.47 1.05-1.05 1.05C10.7 21.15 2.85 13.3 2.85 3.55c0-.58.47-1.05 1.05-1.05h3.5c.58 0 1.05.47 1.05 1.05 0 1.31.2 2.56.6 3.74.12.36.04.76-.24 1.05L6.6 10.8z"/></svg>
+      </a>
+      <a href="tel:+79179040491" class="topbar__phone" data-cursor>+7&nbsp;(917)&nbsp;904-04-91</a>
+      <a href="#contact" class="btn btn--gold btn--sm" data-cursor>Обратный звонок</a>
+    </div>
+  </div>
+</div>
+
 <!-- NAV -->
 <header class="nav" id="nav">
   <a class="brand" href="#top" data-cursor>
@@ -45,8 +65,8 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero__meta">
-    <span class="kicker">БизнесПодруга · с&nbsp;2005 года в&nbsp;бизнесе</span>
-    <span class="kicker kicker--mute">Казань / online</span>
+    <span class="kicker">С&nbsp;2005 года в&nbsp;бизнесе</span>
+    <span class="kicker kicker--mute">Онлайн / Офлайн · Казань</span>
   </div>
 
   <h1 class="hero__title">
@@ -96,7 +116,7 @@
   </div>
 
   <figure class="about__portrait">
-    <img src="assets/luiza-about.jpg" alt="Луиза Зайнуллина — бизнес-консультант" loading="lazy">
+    <img src="assets/luiza-sofa.jpg" alt="Луиза Зайнуллина — бизнес-консультант" loading="lazy">
     <figcaption>Луиза Зайнуллина · Казань</figcaption>
   </figure>
 
@@ -243,40 +263,91 @@
 
 <!-- CTA / LEAD -->
 <section id="contact" class="cta">
-  <div class="cta__inner">
-    <div class="cta__text">
-      <span class="sec-num">07</span>
-      <h2>Бесплатная <em>диагностика</em> вашего бизнеса</h2>
-      <p>60&nbsp;минут в&nbsp;Zoom. Я&nbsp;задаю неудобные вопросы, вы&nbsp;отвечаете честно&nbsp;— и&nbsp;мы&nbsp;вместе видим, где именно бизнес теряет деньги, время и&nbsp;управляемость.</p>
+  <div class="section-head">
+    <span class="sec-num">07</span>
+    <h2>Как начать — два&nbsp;формата</h2>
+    <p class="section-sub">
+      Оба бесплатны и&nbsp;без продажи «на&nbsp;встрече». Выбирай, что&nbsp;ближе:
+      короткий звонок или предметный разбор твоих продаж со&nbsp;стороны клиента.
+    </p>
+  </div>
 
-      <ul class="cta__bonus">
-        <li>Честная картина, где вы&nbsp;недозарабатываете и&nbsp;«сливаете» бюджет</li>
-        <li>Точки роста, которые вы&nbsp;не&nbsp;замечали изнутри</li>
-        <li>План первых шагов: что сделать самим, где нужна моя помощь</li>
-        <li>Без обязательств и&nbsp;без продажи «на&nbsp;встрече»</li>
+  <div class="cta__cards">
+
+    <!-- CARD 1: callback / диагностика -->
+    <article class="cta-card" id="callback">
+      <div class="cta-card__kicker">01 · Диагностика</div>
+      <h3 class="cta-card__title">Бесплатная диагностика <em>за&nbsp;60 минут</em></h3>
+      <p class="cta-card__lead">
+        Оставь телефон&nbsp;— перезвоню в&nbsp;течение дня, договоримся на&nbsp;Zoom.
+        Задам неудобные вопросы, покажу, где именно бизнес теряет деньги, время и&nbsp;управляемость.
+      </p>
+
+      <ul class="cta-card__bonus">
+        <li>Честная картина, где&nbsp;ты&nbsp;недозарабатываешь</li>
+        <li>Точки роста, которые не&nbsp;видно изнутри</li>
+        <li>План первых шагов&nbsp;— что сделать самим</li>
       </ul>
-    </div>
 
-    <form class="cta__form" id="lead-form" novalidate>
-      <label>
-        <span>Имя</span>
-        <input type="text" name="name" required autocomplete="name" placeholder="Как к&nbsp;вам обращаться">
-      </label>
-      <label>
-        <span>Телефон</span>
-        <input type="tel" name="phone" required autocomplete="tel" placeholder="+7 (___) ___-__-__">
-      </label>
-      <label>
-        <span>Telegram</span>
-        <input type="text" name="tg" required placeholder="@username">
-      </label>
-      <label class="consent">
-        <input type="checkbox" name="consent" required>
-        <span>Согласен(а) с&nbsp;<a href="#">Политикой конфиденциальности</a> и&nbsp;обработкой персональных данных.</span>
-      </label>
-      <button class="btn btn--gold btn--wide" type="submit">Отправить заявку</button>
-      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-    </form>
+      <form class="cta-card__form" id="lead-form" data-form="callback" novalidate>
+        <label>
+          <span>Имя</span>
+          <input type="text" name="name" autocomplete="name" placeholder="Как к&nbsp;вам обращаться">
+        </label>
+        <label>
+          <span>Телефон</span>
+          <input type="tel" name="phone" required autocomplete="tel" placeholder="+7 (___) ___-__-__">
+        </label>
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>Согласен(а) с&nbsp;обработкой персональных&nbsp;данных.</span>
+        </label>
+        <button class="btn btn--gold btn--wide" type="submit">Перезвоните мне</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </article>
+
+    <!-- CARD 2: тайный покупатель -->
+    <article class="cta-card cta-card--alt" id="mystery">
+      <div class="cta-card__kicker">02 · Аудит отдела продаж</div>
+      <h3 class="cta-card__title">Бесплатный звонок <em>под видом клиента</em></h3>
+      <p class="cta-card__lead">
+        Узнай, сколько денег уходит между «здравствуйте» и&nbsp;«я&nbsp;подумаю».
+        Я&nbsp;позвоню в&nbsp;твой отдел продаж как обычный клиент&nbsp;— и&nbsp;покажу,
+        на&nbsp;каком шаге вы&nbsp;теряете покупателей и&nbsp;деньги. Без осуждения,
+        с&nbsp;конкретными шагами, что исправить.
+      </p>
+
+      <form class="cta-card__form" id="mystery-form" data-form="mystery" novalidate>
+        <label>
+          <span>Имя</span>
+          <input type="text" name="name" required autocomplete="name" placeholder="Как обращаться">
+        </label>
+        <label>
+          <span>Телефон для обратной связи</span>
+          <input type="tel" name="phone" required autocomplete="tel" placeholder="+7 (___) ___-__-__">
+        </label>
+        <label>
+          <span>Компания / ниша</span>
+          <input type="text" name="company" required placeholder="Чем занимаетесь, что продаёте">
+        </label>
+        <label>
+          <span>Куда звонить (сайт или номер отдела продаж)</span>
+          <input type="text" name="target" required placeholder="site.ru или +7 (___) ___-__-__">
+        </label>
+        <label>
+          <span>Что беспокоит в&nbsp;продажах</span>
+          <textarea name="problem" rows="4" required placeholder="Коротко: где теряете, что&nbsp;уже пробовали, какая гипотеза"></textarea>
+        </label>
+        <label class="consent">
+          <input type="checkbox" name="consent" required>
+          <span>Согласен(а) с&nbsp;обработкой персональных&nbsp;данных.</span>
+        </label>
+        <button class="btn btn--gold btn--wide" type="submit">Отправить&nbsp;— жду звонка Луизы</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </article>
+
   </div>
 </section>
 
@@ -307,8 +378,9 @@
       <ul>
         <li><a href="tel:+79179040491">+7&nbsp;(917)&nbsp;904-04-91</a></li>
         <li><a href="https://t.me/lulumax" target="_blank" rel="noopener">Telegram: @lulumax</a></li>
+        <li><a href="mailto:lulumax@rambler.ru">lulumax@rambler.ru</a></li>
         <li><a href="https://t.me/luizadelo" target="_blank" rel="noopener">Канал «Луиза БизнесПодруга»</a></li>
-        <li>г.&nbsp;Казань · работаю онлайн по&nbsp;всей&nbsp;РФ</li>
+        <li>Онлайн / Офлайн · Казань</li>
       </ul>
     </div>
 

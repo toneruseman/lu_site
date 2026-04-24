@@ -337,37 +337,65 @@
   });
   if (stage) renderQ();
 
-  /* ============ FORM ============ */
-  const form = $('#lead-form');
-  const status = $('#form-status');
-  const phoneInput = form?.querySelector('input[name="phone"]');
-  if (phoneInput) {
-    phoneInput.addEventListener('input', e => {
-      let d = e.target.value.replace(/\D/g, '').slice(0, 11);
-      if (d.startsWith('8')) d = '7' + d.slice(1);
-      if (!d.startsWith('7') && d.length > 0) d = '7' + d;
-      let out = '+7';
-      if (d.length > 1) out += ' (' + d.slice(1, 4);
-      if (d.length >= 4) out += ') ' + d.slice(4, 7);
-      if (d.length >= 7) out += '-' + d.slice(7, 9);
-      if (d.length >= 9) out += '-' + d.slice(9, 11);
-      e.target.value = out;
+  /* ============ FORMS ============ */
+  const formatPhone = el => el.addEventListener('input', e => {
+    let d = e.target.value.replace(/\D/g, '').slice(0, 11);
+    if (d.startsWith('8')) d = '7' + d.slice(1);
+    if (!d.startsWith('7') && d.length > 0) d = '7' + d;
+    let out = '+7';
+    if (d.length > 1) out += ' (' + d.slice(1, 4);
+    if (d.length >= 4) out += ') ' + d.slice(4, 7);
+    if (d.length >= 7) out += '-' + d.slice(7, 9);
+    if (d.length >= 9) out += '-' + d.slice(9, 11);
+    e.target.value = out;
+  });
+
+  // TODO: заменить на реальный эндпоинт (Cloudflare Worker / Vercel function),
+  // который перекладывает payload в Telegram через Bot API
+  const LEAD_ENDPOINT = '';
+
+  document.querySelectorAll('form[data-form]').forEach(form => {
+    const status = form.querySelector('.form-status');
+    form.querySelectorAll('input[type="tel"]').forEach(formatPhone);
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const fd = new FormData(form);
+
+      const required = [...form.querySelectorAll('[required]')];
+      const missing = required.some(el => el.type === 'checkbox' ? !el.checked : !el.value.trim());
+      if (missing) {
+        status.textContent = 'Заполните обязательные поля и подтвердите согласие.';
+        status.classList.add('error');
+        return;
+      }
+
+      status.classList.remove('error');
+      status.textContent = 'Отправляем…';
+      const payload = Object.fromEntries(fd.entries());
+      payload._form = form.dataset.form;
+      payload._page = location.href;
+
+      try {
+        if (LEAD_ENDPOINT) {
+          const r = await fetch(LEAD_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          if (!r.ok) throw new Error('http ' + r.status);
+        } else {
+          await new Promise(res => setTimeout(res, 700));
+        }
+        status.textContent = form.dataset.form === 'mystery'
+          ? 'Спасибо! Луиза прочитает заявку и перезвонит в ближайшее рабочее время.'
+          : 'Спасибо! Перезвоню в ближайшее рабочее время.';
+        form.reset();
+      } catch (err) {
+        status.textContent = 'Не удалось отправить. Напишите в Telegram @lulumax.';
+        status.classList.add('error');
+      }
     });
-  }
-  form?.addEventListener('submit', e => {
-    e.preventDefault();
-    const fd = new FormData(form);
-    if (!fd.get('name') || !fd.get('phone') || !fd.get('tg') || !fd.get('consent')) {
-      status.textContent = 'Заполните все поля и подтвердите согласие.';
-      status.classList.add('error');
-      return;
-    }
-    status.classList.remove('error');
-    status.textContent = 'Отправляем…';
-    setTimeout(() => {
-      status.textContent = 'Благодарю за обращение — свяжусь с вами в ближайшее рабочее время!';
-      form.reset();
-    }, 800);
   });
 
   /* ============ COOKIE ============ */
