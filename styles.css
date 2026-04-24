@@ -535,17 +535,35 @@ main { padding-top: 0; position: relative; z-index: 2; }
 .service:hover::after { transform: scaleX(1); }
 .service.is-hidden { display: none; }
 
-.service__top { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+.service__top {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  flex-wrap: wrap;
+}
 .service__num {
   font-family: var(--serif); color: var(--gold); font-size: 14px; letter-spacing: .2em;
 }
+.service__stage {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ink-mute);
+  padding: 4px 10px; border: 1px solid var(--line-hi); border-radius: 999px;
+  margin-right: auto;
+}
+.service--free .service__stage { color: var(--gold); border-color: rgba(201,163,90,.45); }
+.service--flagship .service__stage { color: var(--ink); border-color: var(--gold); background: rgba(201,163,90,.08); }
+.service--free .service__price { color: var(--gold); font-weight: 600; }
+.service--flagship { background: linear-gradient(180deg, rgba(201,163,90,.04), transparent); }
 .service__price {
-  font-family: var(--serif); color: var(--ink-mute); font-size: 13px;
-  letter-spacing: .04em; white-space: nowrap;
+  font-family: var(--serif); color: var(--ink); font-size: 15px;
+  letter-spacing: .02em; white-space: nowrap; font-weight: 500;
 }
 .service h3 {
   font-family: var(--serif); font-weight: 400; font-size: 22px;
   line-height: 1.2; margin: 0; color: var(--ink);
+}
+.service__duration {
+  margin: -8px 0 0;
+  font-size: 12px; letter-spacing: .06em;
+  color: var(--ink-mute);
 }
 .service__meta {
   display: grid; gap: 10px; font-size: 13px; color: var(--ink-mute);
