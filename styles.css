@@ -906,6 +906,7 @@ main { padding-top: 0; position: relative; z-index: 2; }
   box-shadow: 0 20px 60px rgba(0,0,0,.4);
   animation: slideUp .6s var(--ease);
 }
+.cookie[hidden] { display: none; }
 .cookie p { margin: 0; font-size: 13px; color: var(--ink-mute); }
 @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
