@@ -222,7 +222,7 @@
           <p><b>Что делаем</b><br>${s.what}</p>
           <p><b>Результат</b><br>${s.res}</p>
         </div>
-        <div class="service__toggle"><span>Подробнее</span><i>+</i></div>
+        <div class="service__toggle"><span>Подробнее</span><i aria-hidden="true"></i></div>
       </article>
     `).join('');
 

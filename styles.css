@@ -566,27 +566,38 @@ main { padding-top: 0; position: relative; z-index: 2; }
   color: var(--ink-mute);
 }
 .service__meta {
-  display: grid; gap: 10px; font-size: 13px; color: var(--ink-mute);
-  border-top: 1px solid var(--line); padding-top: 14px;
+  display: grid; gap: 12px; font-size: 13px; color: var(--ink-mute);
   max-height: 0; overflow: hidden; opacity: 0;
-  transition: max-height .5s var(--ease), opacity .4s, padding .3s;
-  border: 0; padding: 0;
+  border: 0; padding: 0; margin: 0;
+  transition: max-height .6s var(--ease), opacity .4s, padding .3s, margin .3s;
 }
+.service__meta p { margin: 0; line-height: 1.5; }
 .service.is-open .service__meta {
-  max-height: 400px; opacity: 1;
+  max-height: 1200px; opacity: 1;
   border-top: 1px solid var(--line); padding-top: 14px; margin-top: 4px;
 }
-.service__meta b { color: var(--gold); font-weight: 500; font-family: var(--sans); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.service__meta b { color: var(--gold); font-weight: 500; font-family: var(--sans); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; display: block; margin-bottom: 4px; }
 .service__toggle {
   display: flex; align-items: center; gap: 8px;
   font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
   color: var(--gold); margin-top: auto;
 }
 .service__toggle i {
-  width: 18px; height: 18px; border: 1px solid var(--gold); border-radius: 50%;
-  display: grid; place-items: center; font-style: normal; font-size: 11px;
+  position: relative;
+  width: 20px; height: 20px;
+  border: 1px solid var(--gold); border-radius: 50%;
+  flex-shrink: 0;
   transition: transform .4s var(--ease);
 }
+.service__toggle i::before,
+.service__toggle i::after {
+  content: ""; position: absolute;
+  top: 50%; left: 50%;
+  background: var(--gold);
+  transform: translate(-50%, -50%);
+}
+.service__toggle i::before { width: 8px; height: 1px; }
+.service__toggle i::after  { width: 1px; height: 8px; }
 .service.is-open .service__toggle i { transform: rotate(45deg); }
 
 .services__foot {
